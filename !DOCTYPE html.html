@@ -10,22 +10,33 @@
       font-family: 'Press Start 2P', cursive;
       margin: 0;
       padding: 0;
-      min-height: 250vh;
-      color: #333;
-      position: relative;
-      background:
-        linear-gradient(135deg, #fce4ec, #d0ead7),
-        url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      background: linear-gradient(135deg, #fce4ec, #d0ead7), url('https://www.transparenttextures.com/patterns/paper-fibers.png');
       background-attachment: fixed;
       background-size: cover;
+      color: #333;
       overflow-x: hidden;
+      line-height: 1.8;
     }
 
     h1 {
       text-align: center;
-      padding-top: 20px;
+      padding-top: 40px;
+      margin-bottom: 30px;
       color: #db7093;
-      font-family: 'Press Start 2P', cursive;
+      font-size: 24px;
+    }
+
+    .celebration {
+      text-align: center;
+      font-size: 32px;
+      color: #ff4081;
+      padding: 40px 10px 20px;
+      animation: pop 1.5s ease infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.05) rotate(1deg); }
     }
 
     .popup {
@@ -53,6 +64,7 @@
     .popup-content h2 {
       color: #db7093;
       font-size: 14px;
+      line-height: 1.8;
     }
 
     .popup-content button {
@@ -65,28 +77,49 @@
       font-family: 'Press Start 2P', cursive;
     }
 
-    .heart {
-      position: absolute;
-      font-size: 24px;
-      color: pink;
-      animation: floatUp 2s ease forwards;
+    .section {
+      margin: 60px auto;
+      padding: 30px;
+      max-width: 750px;
+      background: white;
+      border-radius: 20px;
+      border: 2px solid #a3cbb4;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    @keyframes floatUp {
-      0% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-100px); }
+    .section h2 {
+      text-align: center;
+      color: #db7093;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .badge-list, .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .badge, .stat {
+      background: #fce4ec;
+      padding: 12px 22px;
+      border-radius: 12px;
+      border: 1px solid #a3cbb4;
+      font-size: 11px;
     }
 
     .egg {
       text-align: center;
-      margin: 50px auto;
+      margin: 60px auto;
       font-size: 20px;
       cursor: pointer;
       background: #fff3cd;
-      padding: 20px;
+      padding: 25px;
       border-radius: 20px;
       border: 2px dashed #f4c430;
-      max-width: 400px;
+      max-width: 500px;
       transition: transform 0.4s ease;
     }
 
@@ -96,14 +129,14 @@
 
     .letter-content {
       display: none;
-      margin: 30px auto;
-      max-width: 600px;
+      margin: 40px auto;
+      max-width: 650px;
       background: white;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 30px;
+      border-radius: 14px;
       border: 2px solid #a3cbb4;
-      font-size: 12px;
-      line-height: 1.6;
+      font-size: 13px;
+      line-height: 1.9;
       opacity: 0;
       transition: opacity 0.6s ease;
     }
@@ -113,63 +146,19 @@
       opacity: 1;
     }
 
-    .gallery img {
-      width: 100px;
-      margin: 10px;
-      border-radius: 12px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .section {
-      margin: 50px auto;
-      padding: 20px;
-      max-width: 700px;
-      background: white;
-      border-radius: 20px;
-      border: 2px solid #a3cbb4;
-    }
-
-    .section h2 {
+    .gallery {
       text-align: center;
-      color: #db7093;
+      margin-top: 30px;
+      padding-bottom: 30px;
     }
 
-    .badge-list, .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .badge, .stat {
-      background: #fce4ec;
-      padding: 10px 20px;
-      border-radius: 10px;
-      border: 1px solid #a3cbb4;
-      font-size: 10px;
-    }
-
-    .stars {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .star {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 2s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
+    .gallery img {
+      width: 110px;
+      margin: 15px;
+      border-radius: 14px;
+      border: 2px solid #db7093;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
 
     .pokeball {
@@ -179,10 +168,16 @@
       border: 2px solid black;
       border-radius: 50%;
       position: absolute;
-      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 0 10px #ff4081;
+      transition: transform 0.3s ease;
+    }
+
+    .pokeball:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px #ff4081;
     }
 
     .pokeball::before {
@@ -194,125 +189,188 @@
       border-radius: 50%;
       z-index: 3;
     }
+
+    .gold-pokeball {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(to bottom, gold 0% 50%, #fffacd 50% 100%);
+      border: 3px solid #b8860b;
+      border-radius: 50%;
+      margin: 60px auto 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px gold;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gold-pokeball:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 30px gold;
+    }
+
+    .gold-pokeball::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      background: white;
+      border: 2px solid #b8860b;
+      border-radius: 50%;
+      z-index: 3;
+    }
   </style>
 </head>
-<body onclick="globalSound()">
-<div class="stars" id="stars"></div>
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h2>Really lucky to be able to celebrate your 21st (84th) Birthday somehow together my baby. I am so proud of the person you are becoming. I love you to the Saturn and back a MILLION TRILLION QUADRILLION times over. hehe.</h2>
-    <button onclick="closePopup()">💖</button>
+<body>
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>Really lucky to be able to celebrate your 21st (84th) Birthday somehow together my baby. I am so proud of the person you are becoming. I love you to the Saturn and back a MILLION TRILLION QUADRILLION times over. hehe.</h2>
+      <button onclick="closePopup()">💖</button>
+    </div>
   </div>
-</div>
-<h1>For My Patidev❤️</h1>
-<div class="pokeball" style="top: 20vh; left: 5vw;" onclick="showMessage('Pikachu', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png', 'pikachu')"></div>
-<div class="pokeball" style="top: 80vh; left: 10vw;" onclick="showMessage('Mew', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png', 'jigglypuff')"></div>
-<div class="pokeball" style="top: 140vh; left: 7vw;" onclick="showMessage('Psyduck', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png', 'psyduck')"></div>
-<div class="pokeball" style="top: 30vh; right: 5vw;" onclick="showMessage('Rayquaza', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png', 'pikachu')"></div>
-<div class="pokeball" style="top: 90vh; right: 10vw;" onclick="showMessage('Blastoise', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png', 'psyduck')"></div>
-<div class="pokeball" style="top: 150vh; right: 7vw;" onclick="showMessage('Jigglypuff', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png', 'jigglypuff')"></div>
-<div class="section">
-  <h2>✨ Your Trainer Achievements</h2>
-  <div class="badge-list">
-    <div class="badge">🌙 Cuddle Badge</div>
-    <div class="badge">😂 Good at Making Me Laugh</div>
-    <div class="badge">❤️ Kind & Passionate Trainer</div>
-    <div class="badge">👶 My Baby Badge</div>
-  </div>
-</div>
-<div class="section">
-  <h2>📊 Our Love Compatibility Stats</h2>
-  <div class="stats">
-    <div class="stat">🔥 Chemistry: 999/100</div>
-    <div class="stat">🤓 Nerdiness Sync: 120%</div>
-    <div class="stat">💖 Daily Love Rate: 100%</div>
-    <div class="stat">👶 Baby Potential: 13/13 children unlocked</div>
-  </div>
-</div>
-<div class="egg" onclick="toggleLetter()">🥚 A letter to the best person on this planet</div>
-<div class="letter-content" id="letter">
-  My sweetest Sajal,<br><br>
-  I can’t believe I get to call someone as smart, loving, and stupidly cute as you mine.
-  This website, these Pokéballs, and every pixel of this gift is soaked in the love I feel for you.
-  I miss you more than Psyduck misses peace, and love you more than Jigglypuff loves to sing.<br><br>
-  You’re my adventure, my favorite Pokémon, my safe place.<br><br>
-  Happy birthday, my Patidev. Forever yours,<br>
-  — Shruti 💗
-</div>
-<div class="section">
-  <h2>📸 Our Pokédex Memories</h2>
-  <div class="gallery">
-    <img src="images/photo1.jpg" alt="memory 1">
-    <img src="images/photo2.jpg" alt="memory 2">
-    <img src="images/photo3.jpg" alt="memory 3">
-  </div>
-</div>
-<div class="section">
-  <h2>🦸‍♂️ Trainer Attributes </h2>
-  <div class="badge-list">
-    <div class="badge">🦇 Batman’s Emotional Twin</div>
-    <div class="badge">💥 Flash Speed Replies</div>
-    <div class="badge">🧠 Lex-level Brain but Superman Heart</div>
-    <div class="badge">🎯 Arrowed My Heart</div>
-  </div>
-</div>
-<audio id="sound-pikachu" src="C:\Users\Dell\Documents\images website\weird-pikachu-101090.mp3"></audio>
-<audio id="sound-jigglypuff" src="C:\Users\Dell\Documents\images website\Voicy_Pikachu.mp3"></audio>
-<audio id="sound-psyduck" src="https://downloads.khinsider.com/game-soundtracks/album/pokemon-anime-bgm/psyduck%20funny.mp3"></audio>
-<script>
-  function toggleLetter() {
-    const letter = document.getElementById('letter');
-    letter.classList.toggle('show');
-    const sound = document.getElementById('sound-jigglypuff');
-    if (sound) sound.play();
-  }
 
-  const stars = document.getElementById("stars");
-  for (let i = 0; i < 50; i++) {
-    const s = document.createElement("div");
-    s.className = "star";
-    s.style.top = Math.random() * 100 + "%";
-    s.style.left = Math.random() * 100 + "%";
-    s.style.animationDelay = (Math.random() * 2) + "s";
-    stars.appendChild(s);
-  }
+  <div class="celebration">🎉 HAPPY 21ST BIRTHDAY SAJAL! 🎉</div>
+  <h1>For My Patidev❤️</h1>
 
-  function closePopup() {
-    const sound = document.getElementById('sound-pikachu');
-    if (sound) sound.play();
-    document.getElementById('popup').style.display = 'none';
-    for (let i = 0; i < 15; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerText = '💖';
-      heart.style.left = Math.random() * window.innerWidth + 'px';
-      heart.style.top = window.innerHeight - 30 + 'px';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 2000);
+  <!-- Pokéballs -->
+  <div class="pokeball" style="top: 20vh; left: 5vw;" onclick="showMessage('Pikachu', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png')"></div>
+  <div class="pokeball" style="top: 80vh; left: 10vw;" onclick="showMessage('Mew', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png')"></div>
+  <div class="pokeball" style="top: 140vh; left: 7vw;" onclick="showMessage('Psyduck', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png')"></div>
+  <div class="pokeball" style="top: 30vh; right: 5vw;" onclick="showMessage('Rayquaza', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png')"></div>
+  <div class="pokeball" style="top: 90vh; right: 10vw;" onclick="showMessage('Blastoise', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png')"></div>
+  <div class="pokeball" style="top: 150vh; right: 7vw;" onclick="showMessage('Jigglypuff', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png')"></div>
+
+  <!-- Trainer Achievements -->
+  <div class="section">
+    <h2>✨ Your Trainer Achievements</h2>
+    <div class="badge-list">
+      <div class="badge">🌙 Cuddle Badge</div>
+      <div class="badge">😂 Good at Making Me Laugh</div>
+      <div class="badge">❤️ Kind & Passionate Trainer</div>
+      <div class="badge">👶 My Baby Badge</div>
+    </div>
+  </div>
+
+  <!-- Compatibility Stats -->
+  <div class="section">
+    <h2>📊 Our Love Compatibility Stats</h2>
+    <div class="stats">
+      <div class="stat">🔥 Chemistry: 999/100</div>
+      <div class="stat">🡓 Nerdiness Sync: 120%</div>
+      <div class="stat">💖 Daily Love Rate: 100%</div>
+      <div class="stat">👶 Baby Potential: 13/13 children unlocked</div>
+    </div>
+  </div>
+
+  <!-- DC Attributes -->
+  <div class="section">
+    <h2>🧨 DC Comic Trainer Attributes</h2>
+    <div class="badge-list">
+      <div class="badge">🦇 Batman’s Emotional Twin</div>
+      <div class="badge">⚡ Flash Speed Replies</div>
+      <div class="badge">🧠 Lex Brain, Superman Heart</div>
+      <div class="badge">🎯 Arrowed My Heart</div>
+    </div>
+  </div>
+
+  <!-- Letter Section -->
+  <div class="egg" onclick="toggleLetter()">💌 A letter to the best person on this planet</div>
+  <div class="letter-content" id="letter">
+    My sweetest Sajal,<br><br>
+    I can’t believe I get to call someone as smart, loving, and stupidly cute as you mine.
+    This website, these Pokéballs, and every pixel of this gift is soaked in the love I feel for you.
+    I miss you more than Psyduck misses peace, and love you more than Jigglypuff loves to sing.<br><br>
+    You’re my adventure, my favorite Pokémon, my safe place.<br><br>
+    Happy birthday, my Patidev. Forever yours,<br>
+    — Shruti 💗
+  </div>
+
+  <!-- Gallery -->
+  <div class="section">
+    <h2>📸 Our Pokédex Memories</h2>
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="memory 1">
+      <img src="images/photo2.jpg" alt="memory 2">
+      <img src="images/photo3.jpg" alt="memory 3">
+      <img src="images/photo4.jpg" alt="memory 4">
+      <img src="images/photo5.jpg" alt="memory 5">
+      <img src="images/photo6.jpg" alt="memory 6">
+      <img src="images/photo7.jpg" alt="memory 7">
+      <img src="images/photo8.jpg" alt="memory 8">
+      <img src="images/photo9.jpg" alt="memory 9">
+    </div>
+  </div>
+
+  <!-- Gold Pokéball -->
+  <div class="gold-pokeball" onclick="showGoldLove()"></div>
+
+  <!-- Sound Effect -->
+  <audio id="poke-sound" preload="auto">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-video-game-treasure-2066.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script>
+    function closePopup() {
+      const popup = document.getElementById('popup');
+      if (popup) popup.style.display = 'none';
     }
-  }
 
-  function showMessage(pokemon, imageUrl, soundId) {
-    const popup = document.createElement('div');
-    popup.style.position = 'fixed';
-    popup.style.top = '50%';
-    popup.style.left = '50%';
-    popup.style.transform = 'translate(-50%, -50%)';
-    popup.style.background = 'white';
-    popup.style.border = '2px solid #db7093';
-    popup.style.borderRadius = '20px';
-    popup.style.padding = '20px';
-    popup.style.textAlign = 'center';
-    popup.style.zIndex = 2000;
-    popup.innerHTML = `<h2 style='color:#db7093;'>${pokemon} loves you!</h2><img src="${imageUrl}" width="100">`;
-    document.body.appendChild(popup);
-    setTimeout(() => popup.remove(), 2500);
-    const sound = document.getElementById('sound-' + soundId);
-    if (sound) sound.play();
-  }
+    function toggleLetter() {
+      const letter = document.getElementById('letter');
+      letter.classList.toggle('show');
+    }
 
-  function globalSound() {}
-</script>
+    function playSound() {
+      const audio = document.getElementById('poke-sound');
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play().catch(e => console.log("Sound blocked or failed:", e));
+      }
+    }
+
+    function showMessage(pokemon, imageUrl) {
+      playSound();
+
+      const popup = document.createElement('div');
+      popup.style.position = 'fixed';
+      popup.style.top = '50%';
+      popup.style.left = '50%';
+      popup.style.transform = 'translate(-50%, -50%)';
+      popup.style.background = 'white';
+      popup.style.border = '2px solid #db7093';
+      popup.style.borderRadius = '20px';
+      popup.style.padding = '20px';
+      popup.style.textAlign = 'center';
+      popup.style.zIndex = 2000;
+      popup.innerHTML = `<h2 style='color:#db7093;'>${pokemon} loves you!</h2><img src="${imageUrl}" width="100">`;
+      document.body.appendChild(popup);
+      setTimeout(() => popup.remove(), 2500);
+    }
+
+    function showGoldLove() {
+      playSound();
+
+      const popup = document.createElement('div');
+      popup.style.position = 'fixed';
+      popup.style.top = '50%';
+      popup.style.left = '50%';
+      popup.style.transform = 'translate(-50%, -50%)';
+      popup.style.background = '#fff8dc';
+      popup.style.border = '3px solid gold';
+      popup.style.borderRadius = '20px';
+      popup.style.padding = '30px';
+      popup.style.textAlign = 'center';
+      popup.style.zIndex = 2000;
+      popup.style.color = '#b8860b';
+      popup.style.fontFamily = 'Indie Flower, cursive';
+      popup.innerHTML = `<h2>I LOVE YOU THE MOREST AND MOSTEST 💛</h2>`;
+      document.body.appendChild(popup);
+      setTimeout(() => popup.remove(), 3000);
+    }
+  </script>
 </body>
 </html>
+
 
